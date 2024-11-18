@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O que é Computação em Nuvem</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #12372A;
+            color: #FBFADA;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #436850;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            text-align: center;
+            color: #ADBC9F;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #ADBC9F;
+            color: #12372A;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 4px;
+        }
+
+        li:hover {
+            background-color: #FBFADA;
+            color: #12372A;
+            cursor: pointer;
+        }
+
+
+
+        /* Estilos para o feedback final */
+.feedback-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.score-text {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.feedback-message {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+/* Estilos para os botões */
+.button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 300px; /* Limita o tamanho máximo */
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 16px;
+}
+
+/* Botão "Voltar para a Página Inicial" */
+.back-button {
+    background-color: #436850;
+    color: white;
+}
+
+.back-button:hover {
+    background-color: #345d45;
+}
+
+/* Botão "Tentar Novamente" */
+.retry-button {
+    background-color: #12372A;
+    color: white;
+}
+
+.retry-button:hover {
+    background-color: #0f2c1b;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container" id="quiz-container">
+        <!-- Conteúdo será gerado aqui -->
+    </div>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+    const container = document.getElementById("quiz-container");
+
+    // Definindo as perguntas e alternativas
+    const questions = [
+        {
+            question: "Qual declaração descreve a computação em nuvem?",
+            options: [
+                { text: "Ela fornece recursos para gerenciar apenas dados.", 
+                isCorrect: false, 
+                feedback: "Incorreto. A computação em nuvem oferece muito mais do que apenas gerenciamento de dados. Ela fornece uma gama de recursos de TI, incluindo processamento, armazenamento, redes, softwares, e outros serviços como inteligência artificial, segurança, e mais. O gerenciamento de dados é apenas uma parte do que a nuvem pode fornecer."
+                },
+
+                { text: "Ela oferece serviços sob um contrato de preço fixo.",
+                isCorrect: false, 
+                feedback: "Incorreto. Embora alguns serviços de computação em nuvem possam oferecer contratos com preços fixos, o modelo típico de nuvem é baseado em pagamento por uso (pay-as-you-go). Ou seja, os usuários pagam com base no consumo real de recursos, e não por um preço fixo. Esse modelo permite flexibilidade, escalabilidade e economia para os clientes."
+                },
+
+                { text: "Ela requer que o cliente mantenha seu próprio hardware.",
+                isCorrect: false, 
+                feedback: "Incorreto. Uma das principais vantagens da computação em nuvem é justamente não exigir que os clientes possuam ou mantenham hardware. Os recursos de TI (como servidores, armazenamento, etc.) são fornecidos por provedores de nuvem (como AWS, Microsoft Azure, Google Cloud), que cuidam da infraestrutura física. O cliente apenas utiliza os recursos de forma remota."
+                },
+
+                { text: "Ela fornece recursos de tecnologia da informação (TI) sob demanda.",
+                isCorrect: true, 
+                feedback: "Correto. A computação em nuvem permite que os usuários acessem recursos de TI conforme a necessidade, sem precisar de grandes investimentos iniciais em hardware. A escalabilidade é um ponto-chave, permitindo que os recursos sejam ajustados para atender à demanda, seja para aumentar ou diminuir o uso."
+                }
+            ]
+        },
+        {
+            question: "Qual cenário é um exemplo de software como serviço (SaaS) na computação em nuvem?",
+            options: [
+                { text: "O fornecedor terceirizado gerencia a aquisição de recursos e o aplicativo. O desenvolvedor é responsável pelo conteúdo do aplicativo.",
+                isCorrect: true,
+                feedback: "Correto. Este é um cenário típico do modelo SaaS (Software como Serviço). No SaaS, o fornecedor gerencia completamente o software, incluindo a infraestrutura (servidores, rede, bancos de dados) e o próprio aplicativo. O desenvolvedor ou usuário final apenas usa o software, sem se preocupar com a manutenção, atualizações ou gestão da infraestrutura. O único papel do desenvolvedor, nesse caso, seria em relação ao conteúdo do aplicativo, ou seja, ele não precisa gerenciar ou implantar o código, nem se preocupar com a infraestrutura subjacente. Exemplos incluem Google Docs, Microsoft 365, Salesforce." 
+                },
+
+                { text: "O desenvolvedor mantém servidores virtuais, sistemas operacionais e dados para obter mais controle sobre os recursos.",
+                isCorrect: false,
+                feedback: "Incorreto. Este cenário descreve IaaS (Infraestrutura como Serviço). No IaaS, o desenvolvedor tem controle sobre a infraestrutura virtual, como servidores, redes e sistemas operacionais, além de ser responsável pela gestão de dados. Embora o fornecedor de IaaS cuide da parte física (hardware), o desenvolvedor tem mais controle sobre o software, sistemas operacionais e dados, ao contrário do modelo SaaS, onde o software e a infraestrutura são totalmente gerenciados pelo fornecedor." 
+                },
+
+                { text: "O desenvolvedor implanta o código no ambiente de nuvem mantido pelo fornecedor terceirizado.",
+                isCorrect: false,
+                feedback: "Incorreto. Este cenário descreve PaaS (Plataforma como Serviço). No PaaS, o fornecedor fornece uma plataforma onde o desenvolvedor pode implantar o código e criar aplicativos, sem se preocupar com a infraestrutura (servidores, rede, etc.). A diferença principal para o SaaS é que, no PaaS, o desenvolvedor tem controle sobre a aplicação que está criando, mas o fornecedor gerencia a plataforma onde o código é executado. O SaaS, por outro lado, já fornece a aplicação pronta para uso." 
+                },
+
+                { text: "O desenvolvedor gerencia as atualizações, os patches e a aquisição de recursos. O fornecedor terceirizado é responsável apenas pelo hardware.",
+                isCorrect: false,
+                feedback: "Incorreto. Este cenário também se aplica a IaaS ou PaaS. No IaaS, o desenvolvedor tem controle sobre a infraestrutura e software, incluindo as atualizações e patches. No PaaS, o desenvolvedor ainda gerencia o código e a aplicação, mas não a infraestrutura. O fornecedor terceirizado cuida do hardware, enquanto o desenvolvedor tem mais controle sobre o restante. No modelo SaaS, o fornecedor é responsável por todas as atualizações e manutenção do software, e o usuário final apenas utiliza a aplicação pronta." 
+                }
+            ]
+        },
+        {
+            question: "Um desenvolvedor está concentrado em implantar códigos executados na nuvem AWS. Qual modelo de serviço de nuvem esse desenvolvedor utiliza?",
+            options: [
+                { text: "Modelo híbrido",
+                isCorrect: false,
+                feedback: "Incorreto. O modelo híbrido é uma combinação de nuvem pública e privada, permitindo que dados e aplicativos sejam compartilhados entre elas. Não se refere especificamente a implantar código em uma plataforma de nuvem." 
+                },
+                { text: "Plataforma como serviço (PaaS)",
+                isCorrect: true,
+                feedback: "Correto. No PaaS, o desenvolvedor pode implantar seu código diretamente em uma plataforma de nuvem fornecida pelo provedor. A infraestrutura e a plataforma são gerenciadas pelo provedor, e o desenvolvedor pode se concentrar apenas na criação e implantação da aplicação. Exemplos incluem AWS Elastic Beanstalk e Google App Engine." 
+                },
+                { text: "Infraestrutura como serviço (laaS)",
+                isCorrect: false,
+                feedback: "Incorreto. No IaaS, o desenvolvedor tem mais controle sobre a infraestrutura (servidores, sistemas operacionais, redes), mas ainda precisa configurar e gerenciar esses recursos antes de implantar o código. Exemplos de IaaS incluem AWS EC2, onde você deve gerenciar servidores e sistemas operacionais." 
+                },
+                { text: "Software como serviço (SaaS)",
+                isCorrect: false,
+                feedback: "Incorreto. No SaaS, o software é fornecido pronto para uso e gerenciado pelo provedor de nuvem. O desenvolvedor não implanta código, pois o software já está pré-configurado e é acessado pelos usuários. Exemplos incluem Google Workspace, Salesforce, etc." 
+                },                
+            ]
+        },
+        {
+            question: "",
+            options: [
+                { text: "",
+                isCorrect: true,
+                feedback: "" 
+                },
+                { text: "",
+                isCorrect: true,
+                feedback: "" 
+                },
+                { text: "",
+                isCorrect: true,
+                feedback: "" 
+                },
+                { text: "",
+                isCorrect: true,
+                feedback: "" 
+                },                
+            ]
+        },
+        {
+            question: "",
+            options: [
+                { text: "",
+                isCorrect: true,
+                feedback: "" 
+                },
+                { text: "",
+                isCorrect: true,
+                feedback: "" 
+                },
+                { text: "",
+                isCorrect: true,
+                feedback: "" 
+                },
+                { text: "",
+                isCorrect: true,
+                feedback: "" 
+                },                
+            ]
+        },
+
+        // Adicione mais perguntas aqui conforme necessário
+    ];
+
+    let currentQuestionIndex = 0; // Inicia na primeira pergunta
+    let correctAnswers = 0; // Contador para respostas corretas
+
+    function renderQuestion() {
+        // Limpa o conteúdo anterior
+        container.innerHTML = "";
+
+        const title = document.createElement("h1");
+        title.textContent = questions[currentQuestionIndex].question;
+        title.style.textAlign = "center";
+        title.style.color = "#ADBC9F";
+
+        const description = document.createElement("p");
+        description.textContent = "Selecione a resposta correta:";
+
+        const list = document.createElement("ul");
+        list.style.listStyle = "none";
+        list.style.padding = "0";
+
+        let isAnswered = false; // Impede mais de uma seleção
+
+        questions[currentQuestionIndex].options.forEach(option => {
+            const listItem = document.createElement("li");
+            listItem.textContent = option.text;
+            listItem.style.margin = "10px 0";
+            listItem.style.padding = "10px";
+            listItem.style.borderRadius = "4px";
+            listItem.style.cursor = "pointer";
+
+            // Criar a caixa de feedback
+            const feedbackContainer = document.createElement("div");
+            feedbackContainer.style.backgroundColor = "#F1F1F1";
+            feedbackContainer.style.color = "#000";
+            feedbackContainer.style.borderRadius = "5px";
+            feedbackContainer.style.padding = "15px";
+            feedbackContainer.style.marginTop = "10px";
+            feedbackContainer.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.1)";
+            feedbackContainer.style.display = "none"; // Escondido inicialmente
+            feedbackContainer.textContent = option.feedback;
+
+            listItem.addEventListener("click", () => {
+                if (isAnswered) return; // Impede seleção adicional
+
+                isAnswered = true; // Bloqueia interações futuras
+
+                // Atualiza o contador de respostas corretas
+                if (option.isCorrect) {
+                    correctAnswers++;
+                    listItem.style.backgroundColor = "green";
+                    listItem.style.color = "white";
+                } else {
+                    listItem.style.backgroundColor = "red";
+                    listItem.style.color = "white";
+                }
+
+                // Exibe o feedback de todas as alternativas
+                document.querySelectorAll('div').forEach(feedback => {
+                    feedback.style.display = "block"; // Torna todos os feedbacks visíveis
+                });
+
+                // Desabilita interatividade de todas as opções
+                document.querySelectorAll("li").forEach(item => {
+                    item.style.pointerEvents = "none"; // Remove cliques futuros
+                });
+
+                // Adiciona o botão "Próximo"
+                const nextButton = document.createElement("button");
+                nextButton.textContent = "Próximo";
+                nextButton.style.marginTop = "20px";
+                nextButton.style.padding = "10px 20px";
+                nextButton.style.borderRadius = "5px";
+                nextButton.style.cursor = "pointer";
+                nextButton.style.backgroundColor = "#436850";
+                nextButton.style.color = "white";
+
+                nextButton.addEventListener("click", () => {
+                    if (currentQuestionIndex < questions.length - 1) {
+                        currentQuestionIndex++; // Avança para a próxima pergunta
+                        renderQuestion();
+                    } else {
+                        showFinalFeedback(); // Mostra o feedback final
+                    }
+                });
+
+                container.appendChild(nextButton);
+            });
+
+            list.appendChild(listItem);
+            list.appendChild(feedbackContainer); // Adiciona o container de feedback após cada alternativa
+        });
+
+        // Adicionar os elementos ao contêiner
+        container.appendChild(title);
+        container.appendChild(description);
+        container.appendChild(list);
+
+        // Botão "Voltar"
+        if (currentQuestionIndex > 0) {
+            const backButton = document.createElement("button");
+            backButton.textContent = "Voltar";
+            backButton.style.marginTop = "20px";
+            backButton.style.padding = "10px 20px";
+            backButton.style.borderRadius = "5px";
+            backButton.style.cursor = "pointer";
+            backButton.style.backgroundColor = "#F5A623";
+            backButton.style.color = "white";
+
+            backButton.addEventListener("click", () => {
+                if (currentQuestionIndex > 0) {
+                    currentQuestionIndex--; // Volta para a pergunta anterior
+                    renderQuestion();
+                }
+            });
+
+            container.appendChild(backButton);
+        }
+    }
+
+    // Função para mostrar o feedback final
+    function showFinalFeedback() {
+        container.innerHTML = ""; // Limpa as perguntas
+
+        const feedbackContainer = document.createElement("div");
+    feedbackContainer.classList.add("feedback-container");
+
+    const scoreText = document.createElement("p");
+    scoreText.textContent = `Você acertou ${correctAnswers} de ${questions.length} perguntas!`;
+    scoreText.classList.add("score-text");
+    feedbackContainer.appendChild(scoreText);
+
+    const message = document.createElement("p");
+    message.textContent = correctAnswers === questions.length ? "Parabéns, você acertou todas!" : "Continue tentando!";
+    message.classList.add("feedback-message");
+    feedbackContainer.appendChild(message);
+
+    // Criando o botão de voltar à página inicial
+    const backButton = document.createElement("button");
+    backButton.textContent = "Voltar para a Página Inicial";
+    backButton.classList.add("button", "back-button");
+
+    // Evento para voltar à página inicial
+    backButton.addEventListener("click", () => {
+        window.location.href = "home.html"; // Redireciona para a página home.html
+    });
+
+    // Criando o botão de tentar novamente
+    const retryButton = document.createElement("button");
+    retryButton.textContent = "Tentar Novamente";
+    retryButton.classList.add("button", "retry-button");
+
+    // Evento para reiniciar o quiz
+    retryButton.addEventListener("click", () => {
+        resetQuiz(); // Função que reinicia o quiz
+    });
+
+    // Adicionando os botões ao contêiner de feedback
+    feedbackContainer.appendChild(backButton);
+    feedbackContainer.appendChild(retryButton);
+
+    // Adicionando o feedback final ao contêiner
+    container.appendChild(feedbackContainer);
+}
+
+// Função para reiniciar o quiz
+function resetQuiz() {
+    // Resetando o contador de respostas corretas
+    correctAnswers = 0;
+    currentQuestionIndex = 0;
+    
+    // Limpar o conteúdo do contêiner para re-renderizar o quiz
+    container.innerHTML = "";
+
+    // Re-renderizando a primeira pergunta
+    renderQuestion();}
+
+    renderQuestion(); // Renderiza a primeira pergunta
+});
+
+
+
+
+    </script>
+</body>
+</html>

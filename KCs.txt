@@ -1,0 +1,34 @@
+5- CF - KC- O que é computação em nuvem
+6- CF - KC - O que é a Amazon Web Services
+7- CF - KC - Fundamentos da definição de preço da AWS
+208-CF-KC - Vantagens da computação em nuvem
+8- CF - KC — Visão geral da infraestrutura da AWS
+209-CF- KC - Serviços e categorias da AWS
+9- CF -KC - Modelo de responsabilidade compartilhada
+10- CF - KC — Introdução ao Amazon S3
+12- CF -KC — Introdução ao Amazon EC2
+
+
+
+Qual declaração descreve a computação em nuvem?
+
+Ela fornece recursos para gerenciar apenas dados.
+Ela oferece serviços sob um contrato de preço fixo.
+Ela requer que o cliente mantenha seu próprio hardware.
+Ela fornece recursos de tecnologia da informação (TI) sob demanda.*
+
+---------------------------------
+
+Qual cenário é um exemplo de software como serviço (SaaS) na computação em nuvem?
+
+O fornecedor terceirizado gerencia a aquisição de recursos e o aplicativo. O desenvolvedor é responsável pelo conteúdo do aplicativo.*
+O desenvolvedor mantém servidores virtuais, sistemas operacionais e dados para obter mais controle sobre os recursos.
+O desenvolvedor implanta o código no ambiente de nuvem mantido pelo fornecedor terceirizado.
+O desenvolvedor gerencia as atualizações, os patches e a aquisição de recursos. O fornecedor terceirizado é responsável apenas pelo hardware
+
+Um desenvolvedor está concentrado em implantar códigos executados na nuvem AWS. Qual modelo de serviço de nuvem esse desenvolvedor utiliza?
+
+Modelo híbrido
+Plataforma como serviço (PaaS)*
+Infraestrutura como serviço (laaS)
+Software como serviço (SaaS)
