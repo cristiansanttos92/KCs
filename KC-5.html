@@ -190,7 +190,7 @@
                 isCorrect: false,
                 feedback: "Incorreto. O modelo híbrido é uma combinação de nuvem pública e privada, permitindo que uma organização utilize ambas as opções. Porém, ele não é um modelo de serviço de nuvem específico, e sim uma abordagem de arquitetura de nuvem que envolve diferentes tipos de infraestrutura." 
                 },
-                { text: "Infraestrutura como serviço (laaS)*",
+                { text: "Infraestrutura como serviço (laaS)",
                 isCorrect: true,
                 feedback: "Correto. O IaaS oferece controle total sobre a infraestrutura, incluindo servidores (virtuais ou físicos), redes e armazenamento. O usuário pode configurar e gerenciar essas instâncias conforme necessário. Exemplos incluem AWS EC2, Google Compute Engine e Microsoft Azure." 
                 },
@@ -201,23 +201,23 @@
             ]
         },
         {
-            question: "",
+            question: "Uma empresa tem um data center on-premises e também executa uma parte de sua infraestrutura na nuvem. Qual modelo de implantação de computação em nuvem descreve esse cenário?",
             options: [
-                { text: "",
+                { text: "Nuvem híbrida",
                 isCorrect: true,
-                feedback: "" 
+                feedback: "Correto. A nuvem híbrida é o modelo que combina uma infraestrutura local (on-premises) com uma nuvem pública. Isso permite que a empresa armazene dados sensíveis ou críticos localmente, enquanto usa a nuvem pública para flexibilidade, escalabilidade e custos mais baixos em algumas operações. O gerenciamento pode ser integrado entre a nuvem pública e privada." 
                 },
-                { text: "",
-                isCorrect: true,
-                feedback: "" 
+                { text: "Nuvem pública",
+                isCorrect: false,
+                feedback: "Incorreto. A nuvem pública é a infraestrutura de TI totalmente fornecida e gerida por um provedor de nuvem, como AWS, Google Cloud ou Microsoft Azure. Nesse modelo, todos os recursos são hospedados e gerenciados pelo provedor de nuvem, e não envolve a combinação com uma infraestrutura local, como no caso da nuvem híbrida." 
                 },
-                { text: "",
-                isCorrect: true,
-                feedback: "" 
+                { text: "Nuvem dedicada",
+                isCorrect: false,
+                feedback: "Incorreto. A nuvem dedicada refere-se a recursos de nuvem que são exclusivos para uma organização, mas ainda são fornecidos pelo provedor de nuvem. Diferente da nuvem híbrida, a nuvem dedicada não combina uma infraestrutura on-premises com a nuvem pública, sendo um ambiente totalmente dedicado à organização." 
                 },
-                { text: "",
-                isCorrect: true,
-                feedback: "" 
+                { text: "Nuvem privada",
+                isCorrect: false,
+                feedback: "Incorreto. A nuvem privada refere-se a uma infraestrutura de nuvem que é gerida de forma exclusiva para uma organização, geralmente dentro do seu próprio data center ou em um data center de terceiros, mas sem envolver a nuvem pública. Diferente da nuvem híbrida, a nuvem privada não envolve a utilização simultânea de recursos de nuvem pública." 
                 },                
             ]
         },
